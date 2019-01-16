@@ -11,6 +11,18 @@ const _colorSet = {
   mainSubtextColor: '#b6b9bf',
   hairlineColor: '#d6d6d6',  
   whiteColor: 'white',
+  analyticsColor: '#5f65fc',
+  analyticsLightColor: '#5f65fc30',
+  customersColor: '#ff8a02',
+  customersLightColor: '#ff8a0230',
+  ordersColor: '#e090d7',
+  ordersLightColor: '#e090d730',
+  tasksColor: '#6fb168',
+  tasksLightColor: '#6fb16830',
+  salesColor: '#f8d246',
+  salesLightColor: '#f8d24630',
+  productsColor: '#bc6e7e',
+  productsLightColor: '#bc6e7e30',
 };
 
 const _fontSet = {
@@ -36,6 +48,11 @@ const _iconSet = {
   feed: require('../assets/icons/feed.png'),
   logo: require('../assets/icons/logo.png'),
   orders: require('../assets/icons/orders.png'),
+  analytics: require('../assets/icons/bars.png'),
+  customers: require('../assets/icons/home.png'),
+  tasks: require('../assets/icons/orders.png'),
+  sales: require('../assets/icons/bell.png'),
+  products: require('../assets/icons/feed.png'),
 }
 
 const _iconSizeSet = {

@@ -3,7 +3,6 @@ import { ScrollView, View, FlatList, Text, TextInput, Image, TouchableOpacity, S
 import FastImage from 'react-native-fast-image';
 import { connect } from 'react-redux';
 import AppStyles from '../AppStyles';
-import apiData from '../dummy_data.json';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class OrdersScreen extends React.Component {

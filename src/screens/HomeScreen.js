@@ -3,7 +3,7 @@ import { ScrollView, View, FlatList, Text, TextInput, Image, TouchableOpacity, S
 import FastImage from 'react-native-fast-image';
 import { connect } from 'react-redux';
 import AppStyles from '../AppStyles';
-import apiData from '../dummy_data.json';
+import Api from '../Api';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class HomeScreen extends React.Component {
@@ -17,14 +17,42 @@ class HomeScreen extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            categories: Api.getCategories(),
+        }
     }
 
-    
+
+    renderCategoryItem = ({ item }) => (
+        <TouchableOpacity onPress={() => this.onPresscategory(item)}>
+            <View style={styles.categoryItemContainer}>
+                <View style={[styles.iconContainer, {borderColor: item.color, backgroundColor: item.lightColor}]}>
+                    <Image style={[styles.categoryIcon, {tintColor: item.color}]} source={item.icon} />
+                </View>
+                <Text style={styles.categoryName}>{item.title}</Text>
+            </View>
+        </TouchableOpacity>
+    );
+
+    renderCategorySeparator = () => {
+        return (<View style={styles.categoryDivider} />);
+    };
 
     render() {
         return (
             <ScrollView style={styles.container}>
-                <Image style={{ tintColor: 'red' }} source={AppStyles.iconSet.home} />
+                <View style={styles.categories}>
+                    <FlatList
+                        horizontal={true}
+                        initialNumToRender={4}
+                        ItemSeparatorComponent={this.renderCategorySeparator}
+                        data={this.state.categories}
+                        showsHorizontalScrollIndicator={false}
+                        renderItem={this.renderCategoryItem}
+                        keyExtractor={item => `${item.id}`}
+                    />
+                </View>
             </ScrollView>
         );
     }
@@ -34,6 +62,36 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
         flex: 1,
+    },
+    categories: {
+        minHeight: 75,
+        padding: 10,
+    },
+    categoryDivider: {
+        width: 30,
+        height: "100%",
+    },
+    categoryItemContainer: {
+        alignItems: 'center',
+    },
+    iconContainer: {
+        height: 60,
+        borderRadius: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 2,
+        borderColor: AppStyles.colorSet.mainThemeForegroundColor,
+        backgroundColor: 'grey',
+        width: 60,
+    },
+    categoryIcon: {
+        height: 30,
+        tintColor: AppStyles.colorSet.mainThemeForegroundColor,
+        width: 30,
+    },
+    categoryName: {
+        marginTop: 10,
+        alignSelf: 'center',
     },
 });
 
