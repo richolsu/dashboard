@@ -3,19 +3,21 @@ import { Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native'
 import AppStyles from '../AppStyles';
 
 export default class MenuButton extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <TouchableHighlight onPress={this.props.onPress }
+      <TouchableHighlight onPress={this.props.onPress}
         style={styles.btnClickContain} underlayColor="rgba(128, 128, 128, 0.1)">
         <View style={styles.btnContainer}>
-          <Image
-            source={this.props.source}
-            style={styles.btnIcon}
-          />
+          <View style={styles.imageContainer}>
+            <Image
+              source={this.props.source}
+              style={styles.image}
+            />
+          </View>
           <Text style={styles.btnText}>
             {this.props.title}
           </Text>
@@ -37,12 +39,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
   },
-  btnIcon: {
-    tintColor: 'black',
-    height: 25,
-    width: 25,
+  imageContainer: {    
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 15,
+    borderWidth: 0.5,
+    height: 30,
+    width: 30,
+    marginLeft: 20,
+    marginRight: 10,
+    borderColor: AppStyles.colorSet.mainTextColor,
   },
-  btnText: {    
+  image: {
+    tintColor: AppStyles.colorSet.mainTextColor,
+    height: 15,
+    width: 15,
+  },
+  btnText: {
     fontSize: 16,
     marginLeft: 10,
     marginTop: 2,

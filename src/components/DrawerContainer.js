@@ -10,10 +10,11 @@ export default class DrawerContainer extends React.Component {
     return (
       <View style={styles.content}>
         <View style={styles.container}>
-          <MenuButton title='Home' source={AppStyles.iconSet.home} onPress={() => { navigation.navigate('HomeStack') }} />
-          <MenuButton title='Friends' source={AppStyles.iconSet.friends} onPress={() => { navigation.navigate('FriendsStack') }} />
-          <MenuButton title='Search' source={AppStyles.iconSet.search} onPress={() => { navigation.navigate('SearchStack') }} />
-          <MenuButton title='Logout' source={AppStyles.iconSet.logout} onPress={() => { navigation.dispatch({ type: 'Logout' }) }} />
+          <MenuButton title='Home' source={AppStyles.iconSet.home} onPress={() => { navigation.navigate('Home') }} />
+          <MenuButton title='Dashboard' source={AppStyles.iconSet.bars} onPress={() => { navigation.navigate('Dashboard') }} />
+          <MenuButton title='Orders' source={AppStyles.iconSet.orders} onPress={() => { navigation.navigate('Orders') }} />
+          <MenuButton title='Notifications' source={AppStyles.iconSet.bell} onPress={() => { navigation.navigate('Notifications') }} />
+          <MenuButton title='Activity' source={AppStyles.iconSet.feed} onPress={() => { navigation.navigate('Activity') }} />
         </View>
       </View>
     )

@@ -1,5 +1,6 @@
-import { Animated, Easing, StyleSheet } from 'react-native';
-import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
+import React from 'react';
+import { Animated, Easing, StyleSheet, Image } from 'react-native';
+import { createStackNavigator, createDrawerNavigator, createBottomTabNavigator } from 'react-navigation';
 import { createReactNavigationReduxMiddleware, reduxifyNavigator } from 'react-navigation-redux-helpers';
 import { connect } from 'react-redux';
 import AppStyles from '../AppStyles';
@@ -40,9 +41,9 @@ const LoginStack = createStackNavigator({
 
 
 const HomeStack = createStackNavigator({
-    Home: { screen: HomeScreen },
+    HomeScreen: { screen: HomeScreen },
 }, {
-        initialRouteName: 'Home',
+        initialRouteName: 'HomeScreen',
         headerMode: 'float',
 
         headerLayoutPreset: 'center',
@@ -55,14 +56,54 @@ const HomeStack = createStackNavigator({
 );
 
 
+const TabNavigator = createBottomTabNavigator(
+    {
+        Home: { screen: HomeStack },
+        Dashboard: { screen: HomeStack },
+        Orders: { screen: HomeStack },
+        Notifications: { screen: HomeStack },
+        Activity: { screen: HomeStack },
+    },
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            tabBarIcon: ({ focused, horizontal, tintColor }) => {
+                const { routeName } = navigation.state;
+                let iconName;
+                if (routeName === 'Home') {
+                    iconName = AppStyles.iconSet.home;
+                } else if (routeName === 'Dashboard') {
+                    iconName = AppStyles.iconSet.bars;
+                } else if (routeName === 'Orders') {
+                    iconName = AppStyles.iconSet.orders;
+                } else if (routeName === 'Notifications') {
+                    iconName = AppStyles.iconSet.bell;
+                } else if (routeName === 'Activity') {
+                    iconName = AppStyles.iconSet.feed;
+                }
+                
+                return <Image style={{ tintColor: focused ? AppStyles.colorSet.mainThemeForegroundColor : AppStyles.colorSet.mainTextColor }} source={iconName} />;
+            },
+        }),
+        initialLayout: {
+            height: 300,
+        },
+        tabBarOptions: {
+            activeTintColor: AppStyles.colorSet.mainThemeForegroundColor,
+            inactiveTintColor: AppStyles.colorSet.mainTextColor,
+            style: {
+                height: 50,
+            }
+        },
+    }
+);
 
 // drawer stack
 const DrawerStack = createDrawerNavigator({
-    HomeStack: HomeStack,
+    TabNavigator: TabNavigator,
 }, {
         drawerPosition: 'left',
-        initialRouteName: 'HomeStack',
-        drawerWidth: 200,
+        initialRouteName: 'TabNavigator',
+        drawerWidth: 300,
         contentComponent: DrawerContainer
     })
 
