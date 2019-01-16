@@ -13,6 +13,7 @@ import DashboardScreen from '../screens/DashboardScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import ActivityScreen from '../screens/ActivityScreen';
 import OrdersScreen from '../screens/OrdersScreen';
+import ListScreen from '../screens/ListScreen';
 
 const noTransitionConfig = () => ({
     transitionSpec: {
@@ -46,6 +47,7 @@ const LoginStack = createStackNavigator({
 
 const HomeStack = createStackNavigator({
     HomeScreen: { screen: HomeScreen },
+    ListScreen: { screen: ListScreen },
 }, {
         initialRouteName: 'HomeScreen',
         headerMode: 'float',
@@ -61,6 +63,7 @@ const HomeStack = createStackNavigator({
 
 const DashboardStack = createStackNavigator({
     DashboardScreen: { screen: DashboardScreen },
+    ListScreen: { screen: ListScreen },
 }, {
         initialRouteName: 'DashboardScreen',
         headerMode: 'float',

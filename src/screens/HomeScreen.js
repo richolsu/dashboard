@@ -23,9 +23,12 @@ class HomeScreen extends React.Component {
         }
     }
 
+    onPressCategory = (item) => {
+        this.props.navigation.navigate('ListScreen', { category: item.title });
+    }
 
     renderCategoryItem = ({ item }) => (
-        <TouchableOpacity onPress={() => this.onPresscategory(item)}>
+        <TouchableOpacity onPress={() => this.onPressCategory(item)}>
             <View style={styles.categoryItemContainer}>
                 <View style={[styles.iconContainer, {borderColor: item.color, backgroundColor: item.lightColor}]}>
                     <Image style={[styles.categoryIcon, {tintColor: item.color}]} source={item.icon} />
