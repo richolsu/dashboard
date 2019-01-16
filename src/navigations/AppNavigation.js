@@ -5,10 +5,14 @@ import { createReactNavigationReduxMiddleware, reduxifyNavigator } from 'react-n
 import { connect } from 'react-redux';
 import AppStyles from '../AppStyles';
 import DrawerContainer from '../components/DrawerContainer';
-import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignupScreen from '../screens/SignupScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
+import HomeScreen from '../screens/HomeScreen';
+import DashboardScreen from '../screens/DashboardScreen';
+import NotificationsScreen from '../screens/NotificationsScreen';
+import ActivityScreen from '../screens/ActivityScreen';
+import OrdersScreen from '../screens/OrdersScreen';
 
 const noTransitionConfig = () => ({
     transitionSpec: {
@@ -55,14 +59,73 @@ const HomeStack = createStackNavigator({
     }
 );
 
+const DashboardStack = createStackNavigator({
+    DashboardScreen: { screen: DashboardScreen },
+}, {
+        initialRouteName: 'DashboardScreen',
+        headerMode: 'float',
+
+        headerLayoutPreset: 'center',
+        navigationOptions: ({ navigation }) => ({
+            headerTintColor: AppStyles.colorSet.mainThemeForegroundColor,
+            headerTitleStyle: styles.headerTitleStyle,
+        }),
+        cardStyle: { backgroundColor: '#FFFFFF' },
+    }
+);
+
+const OrdersStack = createStackNavigator({
+    OrdersScreen: { screen: OrdersScreen },
+}, {
+        initialRouteName: 'OrdersScreen',
+        headerMode: 'float',
+
+        headerLayoutPreset: 'center',
+        navigationOptions: ({ navigation }) => ({
+            headerTintColor: AppStyles.colorSet.mainThemeForegroundColor,
+            headerTitleStyle: styles.headerTitleStyle,
+        }),
+        cardStyle: { backgroundColor: '#FFFFFF' },
+    }
+);
+
+const NotificationsStack = createStackNavigator({
+    NotificationsScreen: { screen: NotificationsScreen },
+}, {
+        initialRouteName: 'NotificationsScreen',
+        headerMode: 'float',
+
+        headerLayoutPreset: 'center',
+        navigationOptions: ({ navigation }) => ({
+            headerTintColor: AppStyles.colorSet.mainThemeForegroundColor,
+            headerTitleStyle: styles.headerTitleStyle,
+        }),
+        cardStyle: { backgroundColor: '#FFFFFF' },
+    }
+);
+
+const ActivityStack = createStackNavigator({
+    ActivityScreen: { screen: ActivityScreen },
+}, {
+        initialRouteName: 'ActivityScreen',
+        headerMode: 'float',
+
+        headerLayoutPreset: 'center',
+        navigationOptions: ({ navigation }) => ({
+            headerTintColor: AppStyles.colorSet.mainThemeForegroundColor,
+            headerTitleStyle: styles.headerTitleStyle,
+        }),
+        cardStyle: { backgroundColor: '#FFFFFF' },
+    }
+);
 
 const TabNavigator = createBottomTabNavigator(
     {
         Home: { screen: HomeStack },
-        Dashboard: { screen: HomeStack },
-        Orders: { screen: HomeStack },
-        Notifications: { screen: HomeStack },
-        Activity: { screen: HomeStack },
+        Dashboard: { screen: DashboardStack },
+        Orders: { screen: OrdersStack },
+        Notifications: { screen: NotificationsStack },
+        Activity: { screen: ActivityStack },
     },
     {
         defaultNavigationOptions: ({ navigation }) => ({
