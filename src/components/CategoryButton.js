@@ -21,14 +21,20 @@ export default class CategoryButton extends React.Component {
   }
 }
 
+const GAP = 10;
+
 const styles = StyleSheet.create({
   categoryItemContainer: {
     alignItems: 'center',
-    padding: 30,
+    justifyContent: 'center',
+    padding: 10,
+    paddingTop: 20,
+    paddingBottom:20,
     borderWidth: 1,
     borderColor: AppStyles.colorSet.hairlineColor,
     borderRadius: 5,
-    minWidth: 130,
+    width: (AppStyles.windowW - 4 * GAP) / 3,
+    height: (AppStyles.windowW - 4 * GAP) * 1.5 / 3,
   },
   iconContainer: {
     height: 60,
@@ -40,8 +46,8 @@ const styles = StyleSheet.create({
     width: 60,
   },
   categoryIcon: {
-    height: 30,
-    width: 30,
+    height: 20,
+    width: 20,
   },
   categoryName: {
     marginTop: 10,

@@ -287,7 +287,30 @@ const _getNotifications = () => {
     alarmType: 0,
   }];
 
-  for (let i=0; i<4; i++) {
+  for (let i=0; i<3; i++) {
+    data = [...data, ...data];
+  }
+  return data;
+}
+
+const _getOrders = () => {
+  let data = [{
+    id: 1,
+    title: 'Daniel Wellington Classic',
+    description: 'John Doe. Stripe . #51202325 . Aug 11',
+    photo: 'https://image.shutterstock.com/image-photo/smiling-man-crossed-arms-over-260nw-371570986.jpg',
+    value: '$149.21',
+    valueType: 1
+  }, {
+    id: 2,
+    title: 'Skater Dress',
+    description: 'Adele Camp . Square . #51202325 . Aug 11',
+    photo: 'https://image.shutterstock.com/image-photo/smiling-man-crossed-arms-over-260nw-371570986.jpg',
+    value: '$149.21',
+    valueType: 2
+  }];
+
+  for (let i=0; i<5; i++) {
     data = [...data, ...data];
   }
   return data;
@@ -299,6 +322,7 @@ const dict = {
   getDataOfCategory: _getDataOfCategory,
   getActivityFeeds: _getActivityFeeds,
   getNotifications: _getNotifications,
+  getOrders: _getOrders,
 };
 
 export default dict;
