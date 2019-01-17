@@ -6,27 +6,27 @@ const _getCategories = () => {
     color: AppStyles.colorSet.analyticsColor,
     lightColor: AppStyles.colorSet.analyticsLightColor,
     icon: AppStyles.iconSet.analytics
-  },{
+  }, {
     title: 'Customers',
     color: AppStyles.colorSet.customersColor,
     lightColor: AppStyles.colorSet.customersLightColor,
     icon: AppStyles.iconSet.customers
-  },{
+  }, {
     title: 'Orders',
     color: AppStyles.colorSet.ordersColor,
     lightColor: AppStyles.colorSet.ordersLightColor,
     icon: AppStyles.iconSet.orders
-  },{
+  }, {
     title: 'Tasks',
     color: AppStyles.colorSet.tasksColor,
     lightColor: AppStyles.colorSet.tasksLightColor,
     icon: AppStyles.iconSet.tasks
-  },{
+  }, {
     title: 'Sales',
     color: AppStyles.colorSet.salesColor,
     lightColor: AppStyles.colorSet.salesLightColor,
     icon: AppStyles.iconSet.sales
-  },{
+  }, {
     title: 'Products',
     color: AppStyles.colorSet.productsColor,
     lightColor: AppStyles.colorSet.productsLightColor,
@@ -45,6 +45,15 @@ const _getTaskItem = (index) => {
     value: 'Done',
   };
 
+  item.properties = {
+    'Title': 'Launch iPhone app for Dashboard',
+    'Status': 'In Progress',
+    'Creation Date': 'Aug 14, 2018',
+    'Priority': 'High',
+    'Difficulty': 2,
+    'Due Date': 'Aug 29, 2018'
+  }
+
   return item;
 }
 
@@ -57,17 +66,38 @@ const _getProductsItem = (index) => {
     value: 'Created Jul ' + index,
   };
 
+  item.properties = {
+    'Name': 'Adidas Sweatshirt',
+    'Items Sold': '432 items',
+    'Tags': 'sports, running, discount',
+    'Categories': 'Clothes, Sport',
+    'Price': '$169.00',
+    'SKU': '',
+    'Tax Status': 'taxable',
+    'Tax Class': 2
+  }
+
   return item;
 }
 
 const _getOrdersItem = (index) => {
   let item = {
     id: index,
-    title: 'Adidas Sweatshirt ' + index,
+    title: 'Skater Dress ' + index,
     description: 'Monica Perez . Stripe . #43555 . Aug ' + index,
     photo: 'https://static.pullandbear.cn/2/photos/2019/V/0/2/p/5590/540/827/5590540827_1_1_3.jpg?t=1543923397000',
     value: '$' + index + '.00',
   };
+
+  item.properties = {
+    'Creation Date': 'Aug 11',
+    'Product Name': 'Skater Dress',
+    'Customer Name': 'Adele Camp',
+    'Payment Gateway': 'Square',
+    'Refund': 'No',
+    'Receipt Number': '#645644',
+    'Final Price': '$260'
+  }
 
   return item;
 }
@@ -81,6 +111,14 @@ const _getCustomersItem = (index) => {
     value: 'Created Jul ' + index,
   };
 
+  item.properties = {
+    'Name': 'John Doe',
+    'Email': 'jdoe@gmail.com',
+    'Account Created': 'Jul 12, 2018',
+    'Total Spend': '$259',
+    'Total Orders': 2,
+  }
+
   return item;
 }
 
@@ -92,6 +130,15 @@ const _getSalesItem = (index) => {
     photo: 'https://image.shutterstock.com/image-photo/smiling-man-crossed-arms-over-260nw-371570986.jpg',
     value: 'Done',
   };
+
+  item.properties = {
+    'title': 'Launch iPhone app for Dashboard',
+    'Status': 'In Progress',
+    'Creation Date': 'Aug 14, 2018',
+    'Priority': 'High',
+    'Difficulty': 2,
+    'Due Date': 'Aug 29, 2018'
+  }
 
   return item;
 }
@@ -105,12 +152,21 @@ const _getAnalyticsItem = (index) => {
     value: 'Done',
   };
 
+  item.properties = {
+    'title': 'Launch iPhone app for Dashboard',
+    'Status': 'In Progress',
+    'Creation Date': 'Aug 14, 2018',
+    'Priority': 'High',
+    'Difficulty': 2,
+    'Due Date': 'Aug 29, 2018'
+  }
+
   return item;
 }
 
 const _getListOfCategory = (category) => {
   let list = [];
-  for (let i=1; i<=20; i++) {
+  for (let i = 1; i <= 20; i++) {
     if (category == 'Tasks') {
       list.push(_getTaskItem(i));
     } else if (category == 'Products') {
@@ -129,9 +185,29 @@ const _getListOfCategory = (category) => {
   return list;
 }
 
+const _getDataOfCategory = (category, id) => {
+  let data = null;
+  if (category == 'Tasks') {
+    data = _getTaskItem(id);
+  } else if (category == 'Products') {
+    data = _getProductsItem(id);
+  } else if (category == 'Orders') {
+    data = _getOrdersItem(id);
+  } else if (category == 'Customers') {
+    data = _getCustomersItem(id);
+  } else if (category == 'Sales') {
+    data = _getSalesItem(id);
+  } else if (category == 'Analytics') {
+    data = _getAnalyticsItem(id);
+  }
+
+  return data;
+}
+
 const dict = {
   getCategories: _getCategories,
-  getListOfCategory: _getListOfCategory
+  getListOfCategory: _getListOfCategory,
+  getDataOfCategory: _getDataOfCategory,
 };
 
 export default dict;

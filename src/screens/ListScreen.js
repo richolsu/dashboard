@@ -15,12 +15,13 @@ class ListScreen extends React.Component {
 
         const category = props.navigation.getParam('category');
         this.state = {
+            category: category,
             list: Api.getListOfCategory(category)
         };
     }
 
     onPressItem = (item) => {
-        this.props.navigation.navigate('DetailScreen', { item: item });
+        this.props.navigation.navigate('DetailScreen', { category: this.state.category, item: item });
     }
 
     renderItem = ({ item }) => (
