@@ -14,6 +14,7 @@ import NotificationsScreen from '../screens/NotificationsScreen';
 import ActivityScreen from '../screens/ActivityScreen';
 import OrdersScreen from '../screens/OrdersScreen';
 import ListScreen from '../screens/ListScreen';
+import DetailScreen from '../screens/DetailScreen';
 
 const noTransitionConfig = () => ({
     transitionSpec: {
@@ -48,6 +49,7 @@ const LoginStack = createStackNavigator({
 const HomeStack = createStackNavigator({
     HomeScreen: { screen: HomeScreen },
     ListScreen: { screen: ListScreen },
+    DetailScreen: { screen: DetailScreen },
 }, {
         initialRouteName: 'HomeScreen',
         headerMode: 'float',
@@ -64,6 +66,7 @@ const HomeStack = createStackNavigator({
 const DashboardStack = createStackNavigator({
     DashboardScreen: { screen: DashboardScreen },
     ListScreen: { screen: ListScreen },
+    DetailScreen: { screen: DetailScreen },
 }, {
         initialRouteName: 'DashboardScreen',
         headerMode: 'float',
@@ -146,7 +149,7 @@ const TabNavigator = createBottomTabNavigator(
                 } else if (routeName === 'Activity') {
                     iconName = AppStyles.iconSet.feed;
                 }
-                
+
                 return <Image style={{ tintColor: focused ? AppStyles.colorSet.mainThemeForegroundColor : AppStyles.colorSet.mainTextColor }} source={iconName} />;
             },
         }),

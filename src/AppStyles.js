@@ -11,6 +11,7 @@ const _colorSet = {
   mainSubtextColor: '#b6b9bf',
   hairlineColor: '#d6d6d6',  
   whiteColor: 'white',
+  redColor: 'red',
   analyticsColor: '#5f65fc',
   analyticsLightColor: '#5f65fc30',
   customersColor: '#ff8a02',
@@ -23,6 +24,8 @@ const _colorSet = {
   salesLightColor: '#f8d24630',
   productsColor: '#bc6e7e',
   productsLightColor: '#bc6e7e30',
+  taskNotStartedColor: '#f8d246',
+  taskDoneColor: 'green',
 };
 
 const _fontSet = {
