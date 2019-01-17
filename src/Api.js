@@ -248,11 +248,57 @@ const _getActivityFeeds = () => {
   return data;
 }
 
+const _getNotifications = () => {
+  let data = [{
+    id: 1,
+    type: 1,
+    title: 'Your staff meeting start in 15 minutes',
+    subTitle: '1 days ago',
+    alarmType: 1,
+  }, {
+    id: 2,
+    type: 2,
+    title: 'An order of $120 has been placed',
+    subTitle: '5 hours ago',
+    alarmType: 1,
+  }, {
+    id: 3,
+    type: 3,
+    title: 'New recommendation for John Doe has been prepared',
+    subTitle: '0 days ago',
+    alarmType: 1,
+  }, {
+    id: 4,
+    type: 4,
+    title: 'A new account has been created',
+    subTitle: '1 days ago',
+    alarmType: 1,
+  }, {
+    id: 5,
+    type: 5,
+    title: 'Anomaly detected! Your landing page has spiked 10% in page views in the last hour.',
+    subTitle: '1 days ago',
+    alarmType: 0,
+  }, {
+    id: 6,
+    type: 6,
+    title: 'You site has been down for 5 minutes',
+    subTitle: '1 days ago',
+    alarmType: 0,
+  }];
+
+  for (let i=0; i<4; i++) {
+    data = [...data, ...data];
+  }
+  return data;
+}
+
 const dict = {
   getCategories: _getCategories,
   getListOfCategory: _getListOfCategory,
   getDataOfCategory: _getDataOfCategory,
   getActivityFeeds: _getActivityFeeds,
+  getNotifications: _getNotifications,
 };
 
 export default dict;
