@@ -204,10 +204,55 @@ const _getDataOfCategory = (category, id) => {
   return data;
 }
 
+const _getActivityFeeds = () => {
+  let data = [{
+    id: 1,
+    type: 1,
+    title: 'Order Placed',
+    subTitle: 'Jul 12, 2018',
+    value: '#3214123',
+    valueType: 1,
+  }, {
+    id: 2,
+    type: 2,
+    title: 'Payment Received',
+    subTitle: 'Jul 12, 2018',
+    value: '$198.60',
+    valueType: 2,
+  }, {
+    id: 3,
+    type: 1,
+    title: 'Refund Requested',
+    subTitle: 'Jul 12, 2018',
+    value: '$260',
+    valueType: 2,
+  }, {
+    id: 4,
+    type: 3,
+    title: 'Refund Processed',
+    subTitle: 'Jul 12, 2018',
+    value: '$260',
+    valueType: 2,
+  }, {
+    id: 5,
+    type: 1,
+    title: 'Customer Registration',
+    subTitle: '#7632423 . Jul 12, 2018',
+    value: '',
+    valueType: 1,
+  }];
+
+  for (let i=0; i<4; i++) {
+    data = [...data, ...data];
+  }
+  return data;
+}
+
 const dict = {
   getCategories: _getCategories,
   getListOfCategory: _getListOfCategory,
   getDataOfCategory: _getDataOfCategory,
+  getActivityFeeds: _getActivityFeeds,
 };
 
 export default dict;
