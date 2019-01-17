@@ -316,6 +316,15 @@ const _getOrders = () => {
   return data;
 }
 
+const _getSummary = () => {
+  const data = {
+    'Total \nRevenue': '$32,575',
+    'Total \nProfit': '$20,590',
+    'Total \nViews': '17,100',
+  }
+  return data;  
+}
+
 const dict = {
   getCategories: _getCategories,
   getListOfCategory: _getListOfCategory,
@@ -323,6 +332,7 @@ const dict = {
   getActivityFeeds: _getActivityFeeds,
   getNotifications: _getNotifications,
   getOrders: _getOrders,
+  getSummary: _getSummary,
 };
 
 export default dict;
