@@ -23,7 +23,11 @@ class DashboardScreen extends React.Component {
     }
 
     onPressCategory = (item) => {
-        this.props.navigation.navigate('ListScreen', { category: item.title });
+        if (item.title == 'Analytics') {
+            this.props.navigation.navigate('AnalyticsScreen');
+        } else {
+            this.props.navigation.navigate('ListScreen', { category: item.title });
+        }        
     }
 
     render() {

@@ -325,6 +325,127 @@ const _getSummary = () => {
   return data;  
 }
 
+const _getRevenueData = () => {
+  const data = [{
+    label: 'Jan',
+    value: 30500
+  },{
+    label: 'Feb',
+    value: 27000
+  },{
+    label: 'Mar',
+    value: 30000
+  },{
+    label: 'Apr',
+    value: 29500
+  },{
+    label: 'May',
+    value: 32500
+  },{
+    label: 'Jun',
+    value: 28000
+  },{
+    label: 'Jul',
+    value: 32000
+  }]
+  return data;  
+}
+
+
+const _getCostData = () => {
+  const data = [{
+    label: 'Jan',
+    value: 2200
+  },{
+    label: 'Feb',
+    value: 2400
+  },{
+    label: 'Mar',
+    value: 2600
+  },{
+    label: 'Apr',
+    value: 2390
+  },{
+    label: 'May',
+    value: 2300
+  },{
+    label: 'Jun',
+    value: 2500
+  }]
+  return data;  
+}
+
+const _getAcquisitionData = () => {
+  const data = [{
+    label: 'Direct',
+    value: 18
+  },{
+    label: 'Affiliates',
+    value: 35
+  },{
+    label: 'SEO',
+    value: 30
+  },{
+    label: 'Referral',
+    value: 19
+  }];
+
+  return data;  
+}
+
+
+const _getMonthlyProfitData = () => {
+  const data = [{
+    label: 'Jan',
+    value: 7400
+  },{
+    label: 'Feb',
+    value: 8431
+  },{
+    label: 'Mar',
+    value: 12485
+  },{
+    label: 'Apr',
+    value: 14120
+  }];
+
+  return data;  
+}
+
+const _getQuarterlyCountryRevenueData = () => {
+  const data = [{
+    label: 'Jan',
+    value: {
+      us: 4000,
+      uk: 4000,
+      india: 4200,
+    }
+  },{
+    label: 'Feb',
+    value: {
+      us: 4000,
+      uk: 4000,
+      india: 4200,
+    }
+  },{
+    label: 'Mar',
+    value: {
+      us: 4000,
+      uk: 4000,
+      india: 4200,
+    }
+  },{
+    label: 'Apr',
+    value: {
+      us: 4000,
+      uk: 4000,
+      india: 4200,
+    }
+  }];
+
+  return data;  
+}
+
 const dict = {
   getCategories: _getCategories,
   getListOfCategory: _getListOfCategory,
@@ -333,6 +454,11 @@ const dict = {
   getNotifications: _getNotifications,
   getOrders: _getOrders,
   getSummary: _getSummary,
+  getRevenueData: _getRevenueData,
+  getCostData: _getCostData,
+  getAcquisitionData: _getAcquisitionData,
+  getMonthlyProfitData: _getMonthlyProfitData,
+  getQuarterlyCountryRevenueData: _getQuarterlyCountryRevenueData,
 };
 
 export default dict;
