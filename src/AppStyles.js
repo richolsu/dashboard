@@ -25,7 +25,7 @@ const _colorSet = {
   productsColor: '#bc6e7e',
   productsLightColor: '#bc6e7e30',
   taskNotStartedColor: '#f8d246',
-  taskDoneColor: 'green',
+  taskDoneColor: 'green',  
 };
 
 const _fontSet = {
@@ -91,6 +91,12 @@ const _functions = {
   }
 }
 
+const _chartConfig = {
+  backgroundGradientFrom: '#FFFFFF',
+  backgroundGradientTo: '#FFFFFF',
+  decimalPlaces: 0,
+  color: (opacity = 1) => `rgba(48, 104, 204, ${opacity})`
+};
 
 const StyleDict = {
   colorSet: _colorSet,
@@ -102,6 +108,7 @@ const StyleDict = {
   windowW: WINDOW_WIDTH,
   windowH: WINDOW_HEIGHT,
   utils: _functions,
+  chartConfig: _chartConfig
 };
 
 export default StyleDict;

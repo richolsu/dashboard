@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import AppStyles from '../AppStyles';
 import Api from '../Api';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { LineChart } from 'react-native-chart-kit'
 
 class HomeScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -25,7 +26,7 @@ class HomeScreen extends React.Component {
                 value: summary[key]
             };
         });
-        
+
         this.state = {
             categories: Api.getCategories(),
             summaryList: summaryList,
@@ -33,12 +34,33 @@ class HomeScreen extends React.Component {
         }
     }
 
+    getLineChartData = () => {
+        const labels = [];
+        const values = [];
+
+        Api.getRevenueData().forEach(element => {
+            labels.push(element.label);
+            values.push(element.value);
+        });
+
+        const chartData = {
+            labels: labels,
+            datasets: [
+                {
+                    data: values,
+                }
+            ]
+        };
+
+        return chartData;
+    }
+
     onPressCategory = (item) => {
         if (item.title == 'Analytics') {
             this.props.navigation.navigate('AnalyticsScreen');
         } else {
             this.props.navigation.navigate('ListScreen', { category: item.title });
-        }        
+        }
     }
 
     renderCategoryItem = ({ item }) => (
@@ -97,6 +119,14 @@ class HomeScreen extends React.Component {
                     />
                 </View>
                 <View style={styles.chart}>
+                    <LineChart
+                        data={this.getLineChartData(this.getLineChartData())}
+                        width={AppStyles.windowH}
+                        height={220}
+                        gridMin={0}
+                        chartConfig={AppStyles.chartConfig}
+                        bezier
+                    />
                 </View>
                 <View style={styles.summary}>
                     <FlatList

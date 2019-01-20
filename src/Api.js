@@ -380,7 +380,7 @@ const _getAcquisitionData = () => {
     label: 'Direct',
     value: 18
   },{
-    label: 'Affiliates',
+    label: 'Afffiliates',
     value: 35
   },{
     label: 'SEO',
@@ -416,7 +416,7 @@ const _getQuarterlyCountryRevenueData = () => {
   const data = [{
     label: 'Jan',
     value: {
-      us: 4000,
+      us: 4200,
       uk: 4000,
       india: 4200,
     }
@@ -430,14 +430,14 @@ const _getQuarterlyCountryRevenueData = () => {
   },{
     label: 'Mar',
     value: {
-      us: 4000,
+      us: 4300,
       uk: 4000,
       india: 4200,
     }
   },{
     label: 'Apr',
     value: {
-      us: 4000,
+      us: 4500,
       uk: 4000,
       india: 4200,
     }

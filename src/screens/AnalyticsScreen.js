@@ -8,8 +8,6 @@ import {
     LineChart,
     BarChart,
     PieChart,
-    ProgressChart,
-    ContributionGraph
 } from 'react-native-chart-kit'
 
 class AnalyticsScreen extends React.Component {
@@ -21,7 +19,11 @@ class AnalyticsScreen extends React.Component {
         super(props);
 
         this.state = {
-            list: Api.getListOfCategory('Analytics')
+            revenueData: Api.getRevenueData(),
+            costData: Api.getCostData(),
+            acquisitionData: Api.getAcquisitionData(),
+            monthlyProfitData: Api.getMonthlyProfitData(),
+            quarterlyCountryRevenueData: Api.getQuarterlyCountryRevenueData(),
         };
     }
 
@@ -30,65 +32,123 @@ class AnalyticsScreen extends React.Component {
     }
 
 
+    getLineChartData = (data) => {
+        const labels = [];
+        const values = [];
+
+        data.forEach(element => {
+            labels.push(element.label);
+            values.push(element.value);
+        });
+
+        const chartData = {
+            labels: labels,
+            datasets: [
+                {
+                    data: values,
+                }
+            ]
+        };
+
+        return chartData;
+    }
+
+    getPieChartData = (data) => {
+
+        const chartData = [];
+
+        for (var i = 0; i < data.length; i++) {
+            var element = data[i];
+            var g = parseInt(255 * i / data.length);
+            chartData.push({
+                name: element.label,
+                value: element.value,
+                legendFontColor: AppStyles.colorSet.mainTextColor,
+                legendFontSize: 12,
+                color: 'rgb(36, ' + g + ',223)'
+            });
+        }
+
+        return chartData;
+    }
+
+    getBarChartData = () => {
+
+        const labels = [];
+        const usValues = [];
+        const ukValues = [];
+        const indiaValues = [];
+
+        this.state.quarterlyCountryRevenueData.forEach(element => {
+            labels.push(element.label);
+            usValues.push(element.value.us);
+            ukValues.push(element.value.uk);
+            indiaValues.push(element.value.india);
+        });
+
+        const chartData = {
+            labels: labels,
+            datasets: [
+                {
+                    data: usValues,
+                },
+                {
+                    data: ukValues,
+                },
+                {
+                    data: indiaValues,
+                }
+            ]
+        };
+
+        return chartData;
+    }
 
     render() {
-        const data = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-            datasets: [{
-                data: [20, 45, 28, 80, 99, 43],
-            }]
-        }
-
-        const pieChartData = [
-            { name: 'Seoul', population: 21500000, color: 'rgba(131, 167, 234, 1)', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-            { name: 'Toronto', population: 2800000, color: '#F00', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-            { name: 'Beijing', population: 527612, color: 'red', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-            { name: 'New York', population: 8538000, color: '#777777', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-            { name: 'Moscow', population: 11920000, color: 'rgb(0, 0, 255)', legendFontColor: '#7F7F7F', legendFontSize: 15 }
-        ]
-
-        const barChartData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'June', 'June', 'June', 'June', 'June'],
-            datasets: [{
-                data: [20, 45, 28, 80, 99, 43, 13, 15, 18, 20, 21]
-            }]
-        }
-
-        const screenWidth = Dimensions.get('window').width
-
-        const chartConfig = {
-            backgroundGradientFrom: '#FFFFFF',
-            backgroundGradientTo: '#FFFFFF',
-            color: (opacity = 1) => `rgba(48, 104, 204, ${opacity})`
-        }
-
         return (
             <ScrollView style={styles.container}>
                 <LineChart
-                    data={data}
-                    width={screenWidth}
+                    data={this.getLineChartData(this.state.revenueData)}
+                    width={AppStyles.windowH}
                     height={220}
-                    chartConfig={chartConfig}
+                    config={{renderHorizontalLines:{count: 10}}}
+                    gridMin={0}
+                    chartConfig={AppStyles.chartConfig}
                     bezier
                 />
-
-                <BarChart
-                    // style={graphStyle}
-                    data={barChartData}
-                    width={screenWidth}
+                <LineChart
+                    data={this.getLineChartData(this.state.costData)}
+                    width={AppStyles.windowH}
                     height={220}
-                    chartConfig={chartConfig}
+                    chartConfig={AppStyles.chartConfig}
+                    bezier
                 />
-
                 <PieChart
-                    data={pieChartData}
-                    width={screenWidth}
+                    data={this.getPieChartData(this.state.acquisitionData)}
+                    width={AppStyles.windowH}
                     height={220}
-                    chartConfig={chartConfig}
-                    accessor="population"
+                    chartConfig={AppStyles.chartConfig}
+                    accessor="value"
                     backgroundColor="transparent"
                     paddingLeft="15"
                 />
+                <PieChart
+                    data={this.getPieChartData(this.state.monthlyProfitData)}
+                    width={AppStyles.windowH}
+                    height={220}
+                    chartConfig={AppStyles.chartConfig}
+                    accessor="value"
+                    backgroundColor="transparent"
+                    paddingLeft="15"
+                />
+                <BarChart
+                    // style={graphStyle}
+                    data={this.getBarChartData()}
+                    width={AppStyles.windowH}
+                    height={220}
+                    chartConfig={AppStyles.chartConfig}
+                />
+
             </ScrollView>
         );
     }
