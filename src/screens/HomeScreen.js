@@ -249,6 +249,7 @@ const styles = StyleSheet.create({
     categoryName: {
         marginTop: 10,
         alignSelf: 'center',
+        fontFamily: AppStyles.fontSet.regular,
     },
     chart: {
         minHeight: 220,
@@ -263,6 +264,7 @@ const styles = StyleSheet.create({
         flex: 1,
         color: AppStyles.colorSet.mainTextColor,
         fontSize: 20,
+        fontFamily: AppStyles.fontSet.regular,
     },
     dateRange: {
         flexDirection: 'row',
@@ -273,6 +275,7 @@ const styles = StyleSheet.create({
     dateRangeTitle: {
         color: AppStyles.colorSet.mainSubtextColor,
         fontSize: 12,
+        fontFamily: AppStyles.fontSet.regular,
     },
     icon: {
         marginLeft: 10,
@@ -296,11 +299,13 @@ const styles = StyleSheet.create({
     },
     summaryKey: {
         textAlign: 'center',
-        color: AppStyles.colorSet.mainSubtextColor
+        color: AppStyles.colorSet.mainSubtextColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     summaryValue: {
         fontSize: 18,
-        color: AppStyles.colorSet.mainThemeForegroundColor
+        color: AppStyles.colorSet.mainThemeForegroundColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
 
     orders: {
@@ -310,6 +315,7 @@ const styles = StyleSheet.create({
         padding: 10,
         color: AppStyles.colorSet.mainTextColor,
         fontSize: 20,
+        fontFamily: AppStyles.fontSet.regular,
     },
     orderItemContainer: {
         flexDirection: 'row',
@@ -331,11 +337,13 @@ const styles = StyleSheet.create({
     },
     orderTitle: {
         color: AppStyles.colorSet.mainTextColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     orderDescription: {
         fontSize: 12,
         color: AppStyles.colorSet.mainSubtextColor,
         marginTop: 3,
+        fontFamily: AppStyles.fontSet.regular,
     },
     orderRightContainer: {
         justifyContent: 'center',
@@ -343,9 +351,11 @@ const styles = StyleSheet.create({
     },
     orderValue1: {
         color: AppStyles.colorSet.redColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     orderValue2: {
         color: AppStyles.colorSet.mainThemeForegroundColor,
+        fontFamily: AppStyles.fontSet.regular,
     }
 
 });

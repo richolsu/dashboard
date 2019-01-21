@@ -70,20 +70,24 @@ const styles = StyleSheet.create({
         margin: 10,
         fontSize: 20,
         color: AppStyles.colorSet.mainTextColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     description: {
         fontSize: 12,
         color: AppStyles.colorSet.mainSubtextColor,
         margin: 10,
+        fontFamily: AppStyles.fontSet.regular,
     },
     propertyTitle: {
         flex: 1,
         fontSize: 16,
         color: AppStyles.colorSet.mainTextColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     propertyValue: {
         fontSize: 12,
         color: AppStyles.colorSet.mainSubtextColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     row: {
         width: '100%',

@@ -39,23 +39,26 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        fontSize: AppStyles.fontSet.xlarge,
+        fontSize: AppStyles.fontSizeSet.xlarge,
         fontWeight: 'bold',
         color: AppStyles.colorSet.mainThemeForegroundColor,
         marginTop: 20,
         marginBottom: 20,
+        fontFamily: AppStyles.fontSet.regular,
     },
     leftTitle: {
         alignSelf: 'stretch',
         textAlign: 'left',
-        marginLeft: 20
+        marginLeft: 20,
+        fontFamily: AppStyles.fontSet.regular,
     },
     content: {
         paddingLeft: 50,
         paddingRight: 50,
         textAlign: 'center',
-        fontSize: AppStyles.fontSet.middle,
+        fontSize: AppStyles.fontSizeSet.middle,
         color: AppStyles.colorSet.mainThemeForegroundColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     loginContainer: {
         width: AppStyles.sizeSet.buttonWidth,
@@ -65,7 +68,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     loginText: {
-        color: AppStyles.colorSet.mainThemeBackgroundColor
+        color: AppStyles.colorSet.mainThemeBackgroundColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     placeholder: {
         color: 'red'
@@ -81,7 +85,8 @@ const styles = StyleSheet.create({
         height: 42,
         paddingLeft: 20,
         paddingRight: 20,
-        color: AppStyles.colorSet.mainTextColor
+        color: AppStyles.colorSet.mainTextColor,
+        fontFamily: AppStyles.fontSet.regular,
     }
 });
 

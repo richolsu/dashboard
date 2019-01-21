@@ -55,23 +55,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     title: {
-        fontSize: AppStyles.fontSet.xlarge,
+        fontSize: AppStyles.fontSizeSet.xlarge,
         fontWeight: 'bold',
         color: AppStyles.colorSet.mainThemeForegroundColor,
         marginTop: 20,
+        fontFamily: AppStyles.fontSet.regular,
         marginBottom: 20,
     },
     leftTitle: {
         alignSelf: 'stretch',
         textAlign: 'left',
+        fontFamily: AppStyles.fontSet.regular,
         marginLeft: 20
     },
     content: {
         paddingLeft: 50,
         paddingRight: 50,
         textAlign: 'center',
-        fontSize: AppStyles.fontSet.middle,
+        fontSize: AppStyles.fontSizeSet.middle,
         color: AppStyles.colorSet.mainThemeForegroundColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     loginContainer: {
         width: AppStyles.sizeSet.buttonWidth,
@@ -81,7 +84,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     loginText: {
-        color: AppStyles.colorSet.mainThemeBackgroundColor
+        color: AppStyles.colorSet.mainThemeBackgroundColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     placeholder: {
         color: 'red'
@@ -109,7 +113,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     facebookText: {
-        color: AppStyles.colorSet.mainThemeBackgroundColor
+        color: AppStyles.colorSet.mainThemeBackgroundColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
 });
 

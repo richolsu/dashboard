@@ -114,15 +114,18 @@ const styles = StyleSheet.create({
     name: {
         fontSize:12,
         color: AppStyles.colorSet.mainSubtextColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     title: {
         marginTop: 3,
         color: AppStyles.colorSet.mainTextColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     description: {
         fontSize: 12,
         color: AppStyles.colorSet.mainSubtextColor,
         marginTop: 3,
+        fontFamily: AppStyles.fontSet.regular,
     },
     rightContainer: {
         justifyContent: 'center',

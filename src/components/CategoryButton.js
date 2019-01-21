@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   },
   categoryName: {
     marginTop: 10,
+    fontFamily: AppStyles.fontSet.regular,
     alignSelf: 'center',
   },
 })

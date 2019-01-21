@@ -75,23 +75,28 @@ const styles = StyleSheet.create({
     },
     title: {
         color: AppStyles.colorSet.mainTextColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     description: {
         fontSize: 12,
         color: AppStyles.colorSet.mainSubtextColor,
         marginTop: 3,
+        fontFamily: AppStyles.fontSet.regular,
     },
     rightContainer: {
         justifyContent: 'center',
         alignItems: 'center',
+        fontFamily: AppStyles.fontSet.regular,
     },
     value1: {
         color: AppStyles.colorSet.mainSubtextColor,
         fontSize:11,
+        fontFamily: AppStyles.fontSet.regular,
     },
     value2: {
         color: AppStyles.colorSet.mainThemeForegroundColor,
         fontSize: 13,
+        fontFamily: AppStyles.fontSet.regular,
     }
 });
 

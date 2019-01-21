@@ -33,11 +33,12 @@ const styles = StyleSheet.create({
         height: 200,
     },
     title: {
-        fontSize: AppStyles.fontSet.xlarge,
+        fontSize: AppStyles.fontSizeSet.xlarge,
         fontWeight: 'bold',
         color: AppStyles.colorSet.mainThemeForegroundColor,
         marginTop: 20,
         marginBottom: 20,
+        fontFamily: AppStyles.fontSet.regular,
     },
     loginContainer: {
         width: AppStyles.sizeSet.buttonWidth,
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
     },
     loginText: {
         color: AppStyles.colorSet.mainThemeBackgroundColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
     signupContainer: {
         width: AppStyles.sizeSet.buttonWidth,
@@ -60,6 +62,7 @@ const styles = StyleSheet.create({
     },
     signupText: {
         color: AppStyles.colorSet.mainThemeForegroundColor,
+        fontFamily: AppStyles.fontSet.regular,
     },
 })
 

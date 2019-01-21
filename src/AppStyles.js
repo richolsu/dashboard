@@ -28,7 +28,7 @@ const _colorSet = {
   taskDoneColor: 'green',
 };
 
-const _fontSet = {
+const _fontSizeSet = {
   xxlarge: 40,
   xlarge: 30,
   large: 25,
@@ -110,12 +110,17 @@ const _dateRangeOptions = [
   { key: 'lifetime', label: 'Lifetime' },
 ];
 
+const _fontSet = {
+  regular: 'AppleSDGothicNeo-Regular',
+  bold: 'AppleSDGothicNeo-Bold'
+};
+
 const StyleDict = {
   colorSet: _colorSet,
   iconSet: _iconSet,
   iconSizeSet: _iconSizeSet,
   sizeSet: _sizeSet,
-  fontSet: _fontSet,
+  fontSizeSet: _fontSizeSet,
   styleSet: _styleSet,
   windowW: WINDOW_WIDTH,
   windowH: WINDOW_HEIGHT,
@@ -123,6 +128,7 @@ const StyleDict = {
   chartConfig: _chartConfig,
   dateRangeOptions: _dateRangeOptions,
   dateFormat: 'YYYY-MM-DD',
+  fontSet: _fontSet,
 };
 
 export default StyleDict;

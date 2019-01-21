@@ -59,5 +59,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 10,
     marginTop: 2,
+    fontFamily: AppStyles.fontSet.regular,
   }
 })

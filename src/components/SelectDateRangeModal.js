@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     title: {
         color: 'black',
         flex: 1,
-        fontWeight: 'bold',
+        fontFamily: AppStyles.fontSet.bold,
         fontSize: 20,
         textAlign: 'center',
         alignSelf: 'center',
