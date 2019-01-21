@@ -121,7 +121,8 @@ const StyleDict = {
   windowH: WINDOW_HEIGHT,
   utils: _functions,
   chartConfig: _chartConfig,
-  dateRangeOptions: _dateRangeOptions
+  dateRangeOptions: _dateRangeOptions,
+  dateFormat: 'YYYY-MM-DD',
 };
 
 export default StyleDict;

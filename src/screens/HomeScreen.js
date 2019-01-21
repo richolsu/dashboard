@@ -7,7 +7,8 @@ import Api from '../Api';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { LineChart } from 'react-native-chart-kit'
 import ModalSelector from 'react-native-modal-selector';
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import SelectDateRangeModal from '../components/SelectDateRangeModal';
+import moment from 'moment';
 
 class HomeScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -29,11 +30,17 @@ class HomeScreen extends React.Component {
             };
         });
 
+        const startDay = moment().format(AppStyles.dateFormat);
+        const endDay = moment().format(AppStyles.dateFormat);
+
         this.state = {
             categories: Api.getCategories(),
             summaryList: summaryList,
             orders: Api.getOrders().slice(0, 10),
             currentDateRangeOption: AppStyles.dateRangeOptions[1],
+            startDay: startDay,
+            endDay: endDay,
+            selectDateRangeModalVisible: false,
         }
     }
 
@@ -111,16 +118,27 @@ class HomeScreen extends React.Component {
         this.props.navigation.navigate('DetailScreen', { category: 'Orders', item: item });
     }
 
-    onChanageDateRange = (option) => {
+    onChanageDateRangeOption = (option) => {
         this.setState({
             currentDateRangeOption: option,
         });
 
+        if (option.key == 'custom_range') {
+            this.setState({selectDateRangeModalVisible: true});
+        }
 
     }
 
-    onDayPress = (day) => {
-        alert(day);
+    onSelectDateRangeCancel = () => {
+        this.setState({ selectDateRangeModalVisible: false });
+    }
+
+    onSelectDateRangeDone = (dateRange) => {
+        this.setState({ 
+            startDay: dateRange.startDay,
+            endDay: dateRange.endDay,
+            selectDateRangeModalVisible: false 
+        });
     }
 
     render() {
@@ -137,17 +155,6 @@ class HomeScreen extends React.Component {
                         keyExtractor={item => `${item.id}`}
                     />
                 </View>
-                <Calendar
-                    onDayPress={this.onDayPress}
-                    // markingType={'period'}
-                    // Collection of dates that have to be marked. Default = {}
-                    markedDates={{
-                        '2019-01-14': { selected: true, selectedColor: 'blue'},
-                        '2019-01-16': { selected: true, startingDay: true, color: AppStyles.colorSet.hairlineColor, textColor: AppStyles.colorSet.mainTextColor },
-                        '2019-01-17': { color: AppStyles.colorSet.hairlineColor, textColor: AppStyles.colorSet.mainTextColor },
-                        '2019-01-18': { endingDay: true, color: AppStyles.colorSet.hairlineColor, textColor: AppStyles.colorSet.mainTextColor },
-                    }}
-                />
                 <View style={styles.chart}>
                     <View style={styles.row}>
                         <Text style={styles.chartTitle}>Overview</Text>
@@ -158,7 +165,7 @@ class HomeScreen extends React.Component {
                                 backdropPressToClose={true}
                                 cancelText={'Cancel'}
                                 initValue={this.state.currentDateRangeOption.label}
-                                onChange={this.onChanageDateRange}>
+                                onChange={this.onChanageDateRangeOption}>
                                 <View style={styles.dateRange}>
                                     <Text style={styles.dateRangeTitle}>{this.state.currentDateRangeOption.label}</Text>
                                     <Icon style={styles.icon} name={'ios-arrow-down'} size={16} color={AppStyles.colorSet.mainSubtextColor} />
@@ -195,6 +202,14 @@ class HomeScreen extends React.Component {
                         initialNumToRender={5}
                     />
                 </View>
+                {this.state.selectDateRangeModalVisible &&
+                    <SelectDateRangeModal
+                        startDay={this.state.startDay}
+                        endDay={this.state.endDay}
+                        onCancel={this.onSelectDateRangeCancel}
+                        onDone={this.onSelectDateRangeDone}
+                    ></SelectDateRangeModal>
+                }
             </ScrollView>
         );
     }
