@@ -6,6 +6,8 @@ import AppStyles from '../AppStyles';
 import Api from '../Api';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { LineChart } from 'react-native-chart-kit'
+import ModalSelector from 'react-native-modal-selector';
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 class HomeScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -30,7 +32,8 @@ class HomeScreen extends React.Component {
         this.state = {
             categories: Api.getCategories(),
             summaryList: summaryList,
-            orders: Api.getOrders().slice(0, 10)
+            orders: Api.getOrders().slice(0, 10),
+            currentDateRangeOption: AppStyles.dateRangeOptions[1],
         }
     }
 
@@ -90,7 +93,7 @@ class HomeScreen extends React.Component {
     );
 
     renderOrderItem = ({ item }) => (
-        <TouchableOpacity onPress={() => this.onPressItem(item)}>
+        <TouchableOpacity onPress={() => this.onPressOrderItem(item)}>
             <View style={styles.orderItemContainer}>
                 <FastImage style={styles.orderPhoto} source={{ uri: item.photo }} />
                 <View style={styles.orderLeftContainer}>
@@ -103,6 +106,22 @@ class HomeScreen extends React.Component {
             </View>
         </TouchableOpacity>
     );
+
+    onPressOrderItem = (item) => {
+        this.props.navigation.navigate('DetailScreen', { category: 'Orders', item: item });
+    }
+
+    onChanageDateRange = (option) => {
+        this.setState({
+            currentDateRangeOption: option,
+        });
+
+
+    }
+
+    onDayPress = (day) => {
+        alert(day);
+    }
 
     render() {
         return (
@@ -118,7 +137,36 @@ class HomeScreen extends React.Component {
                         keyExtractor={item => `${item.id}`}
                     />
                 </View>
+                <Calendar
+                    onDayPress={this.onDayPress}
+                    // markingType={'period'}
+                    // Collection of dates that have to be marked. Default = {}
+                    markedDates={{
+                        '2019-01-14': { selected: true, selectedColor: 'blue'},
+                        '2019-01-16': { selected: true, startingDay: true, color: AppStyles.colorSet.hairlineColor, textColor: AppStyles.colorSet.mainTextColor },
+                        '2019-01-17': { color: AppStyles.colorSet.hairlineColor, textColor: AppStyles.colorSet.mainTextColor },
+                        '2019-01-18': { endingDay: true, color: AppStyles.colorSet.hairlineColor, textColor: AppStyles.colorSet.mainTextColor },
+                    }}
+                />
                 <View style={styles.chart}>
+                    <View style={styles.row}>
+                        <Text style={styles.chartTitle}>Overview</Text>
+                        <View>
+                            <ModalSelector
+                                touchableActiveOpacity={0.9}
+                                data={AppStyles.dateRangeOptions}
+                                backdropPressToClose={true}
+                                cancelText={'Cancel'}
+                                initValue={this.state.currentDateRangeOption.label}
+                                onChange={this.onChanageDateRange}>
+                                <View style={styles.dateRange}>
+                                    <Text style={styles.dateRangeTitle}>{this.state.currentDateRangeOption.label}</Text>
+                                    <Icon style={styles.icon} name={'ios-arrow-down'} size={16} color={AppStyles.colorSet.mainSubtextColor} />
+                                </View>
+
+                            </ModalSelector>
+                        </View>
+                    </View>
                     <LineChart
                         data={this.getLineChartData(this.getLineChartData())}
                         width={AppStyles.windowH}
@@ -188,8 +236,31 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     chart: {
-        minHeight: 120,
+        minHeight: 220,
+    },
+    row: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    chartTitle: {
         padding: 10,
+        flex: 1,
+        color: AppStyles.colorSet.mainTextColor,
+        fontSize: 20,
+    },
+    dateRange: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+    },
+    dateRangeTitle: {
+        color: AppStyles.colorSet.mainSubtextColor,
+        fontSize: 12,
+    },
+    icon: {
+        marginLeft: 10,
     },
     summary: {
         minHeight: 75,

@@ -9,7 +9,7 @@ const _colorSet = {
   mainThemeForegroundColor: '#3068CC',
   mainTextColor: '#464646',
   mainSubtextColor: '#b6b9bf',
-  hairlineColor: '#d6d6d6',  
+  hairlineColor: '#d6d6d6',
   whiteColor: 'white',
   redColor: 'red',
   analyticsColor: '#5f65fc',
@@ -25,7 +25,7 @@ const _colorSet = {
   productsColor: '#bc6e7e',
   productsLightColor: '#bc6e7e30',
   taskNotStartedColor: '#f8d246',
-  taskDoneColor: 'green',  
+  taskDoneColor: 'green',
 };
 
 const _fontSet = {
@@ -84,7 +84,7 @@ const _functions = {
       } else {
         time = moment(timeStamp).fromNow();
       }
-      
+
     }
     // time = postTime.toUTCString();
     return time;
@@ -95,8 +95,20 @@ const _chartConfig = {
   backgroundGradientFrom: '#FFFFFF',
   backgroundGradientTo: '#FFFFFF',
   decimalPlaces: 0,
+  paddingLeft: 0,
   color: (opacity = 1) => `rgba(48, 104, 204, ${opacity})`
 };
+
+const _dateRangeOptions = [
+  { key: 'custom_range', label: 'Custom Range' },
+  { key: 'today', label: 'Today' },
+  { key: 'yesterday', label: 'Yesterday' },
+  { key: 'last_week', label: 'Last Week' },
+  { key: 'this_month', label: 'This Month' },
+  { key: 'last_month', label: 'Last Month' },
+  { key: 'year_to_date', label: 'Year to Date' },
+  { key: 'lifetime', label: 'Lifetime' },
+];
 
 const StyleDict = {
   colorSet: _colorSet,
@@ -108,7 +120,8 @@ const StyleDict = {
   windowW: WINDOW_WIDTH,
   windowH: WINDOW_HEIGHT,
   utils: _functions,
-  chartConfig: _chartConfig
+  chartConfig: _chartConfig,
+  dateRangeOptions: _dateRangeOptions
 };
 
 export default StyleDict;
