@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import AppStyles from '../AppStyles';
 import Api from '../Api';
 import {
-    LineChart,
     BarChart,
     PieChart,
 } from 'react-native-chart-kit'
+
+import LineChart from '../components/line-chart'
 
 class AnalyticsScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
