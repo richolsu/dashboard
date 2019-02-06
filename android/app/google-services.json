@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1052414995326",
+    "firebase_url": "https://dashboard-6272e.firebaseio.com",
+    "project_id": "dashboard-6272e",
+    "storage_bucket": "dashboard-6272e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052414995326:android:e712bbdb1cd33d72",
+        "android_client_info": {
+          "package_name": "com.dashboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052414995326-68nieg84om6bmsqnn6c9j8m3rpkgdq5v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPT1GmpEs6zQNn4wUQhFumi44FU_GQa7M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

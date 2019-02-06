@@ -2,19 +2,26 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import Button from 'react-native-button';
 import AppStyles from '../AppStyles';
+import Api from '../Api';
 
 class LoginScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             loading: true,
-            email: 'jhon@gmail.com',
+            email: 'john@gmail.com',
             password: '111111',
         };
     }
 
     onPressLogin = () => {
-        this.props.navigation.dispatch({ type: 'Login' });
+        Api.login(this.state.email, this.state.password, (success, data) => {
+            if (success) {
+                this.props.navigation.dispatch({ type: 'Login' });
+            } else {
+                alert(data);
+            }            
+        })        
     }
 
     render() {

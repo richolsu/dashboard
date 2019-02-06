@@ -3,6 +3,7 @@ import { StyleSheet, ScrollView, Text, TextInput, View } from 'react-native';
 import Button from 'react-native-button';
 import AppStyles from '../AppStyles';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Api from '../Api';
 
 class SignupScreen extends React.Component {
 
@@ -13,13 +14,21 @@ class SignupScreen extends React.Component {
             loading: true,
             fullname: 'John smith',
             phone: '111',
-            email: 'jhon@gmail.com',
+            email: 'john@gmail.com',
             password: '111111',
         };
     }
 
     onRegister = () => {
-        this.props.navigation.dispatch({ type: 'Login' });
+        const {fullname, phone, email, password} = this.state;
+
+        Api.signup(fullname, phone, email, password, (success, data) => {
+            if (success) {
+                this.props.navigation.dispatch({ type: 'Login' });
+            } else {
+                alert(data);
+            }            
+        })         
     }
 
     render() {

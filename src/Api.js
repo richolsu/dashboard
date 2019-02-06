@@ -1,4 +1,26 @@
 import AppStyles from './AppStyles';
+import firebase from 'react-native-firebase';
+
+
+const _login = (email, password, callback) => {
+  firebase.auth().signInWithEmailAndPassword(email, password).then((response) => {
+    console.log(response.user);
+    callback(true, response.user);    
+  }).catch((error) => {
+    const { code, message } = error;
+    callback(false, message);
+  });
+}
+
+const _signup = (fullname, phone, email, password, callback) => {
+  firebase.auth().createUserWithEmailAndPassword(email, password).then((response) => {
+    console.log(response.user);
+    callback(true, response.user);    
+  }).catch((error) => {
+    const { code, message } = error;
+    callback(false, message);
+  });
+}
 
 const _getCategories = () => {
   const categories = [{
@@ -242,7 +264,7 @@ const _getActivityFeeds = () => {
     valueType: 1,
   }];
 
-  for (let i=0; i<4; i++) {
+  for (let i = 0; i < 4; i++) {
     data = [...data, ...data];
   }
   return data;
@@ -287,7 +309,7 @@ const _getNotifications = () => {
     alarmType: 0,
   }];
 
-  for (let i=0; i<3; i++) {
+  for (let i = 0; i < 3; i++) {
     data = [...data, ...data];
   }
   return data;
@@ -310,7 +332,7 @@ const _getOrders = () => {
     valueType: 2
   }];
 
-  for (let i=0; i<5; i++) {
+  for (let i = 0; i < 5; i++) {
     data = [...data, ...data];
   }
   return data;
@@ -322,33 +344,33 @@ const _getSummary = () => {
     'Total \nProfit': '$20,590',
     'Total \nViews': '17,100',
   }
-  return data;  
+  return data;
 }
 
 const _getRevenueData = () => {
   const data = [{
     label: 'Jan',
     value: 30500
-  },{
+  }, {
     label: 'Feb',
     value: 27000
-  },{
+  }, {
     label: 'Mar',
     value: 30000
-  },{
+  }, {
     label: 'Apr',
     value: 29500
-  },{
+  }, {
     label: 'May',
     value: 32500
-  },{
+  }, {
     label: 'Jun',
     value: 28000
-  },{
+  }, {
     label: 'Jul',
     value: 32000
   }]
-  return data;  
+  return data;
 }
 
 
@@ -356,41 +378,41 @@ const _getCostData = () => {
   const data = [{
     label: 'Jan',
     value: 2200
-  },{
+  }, {
     label: 'Feb',
     value: 2400
-  },{
+  }, {
     label: 'Mar',
     value: 2600
-  },{
+  }, {
     label: 'Apr',
     value: 2390
-  },{
+  }, {
     label: 'May',
     value: 2300
-  },{
+  }, {
     label: 'Jun',
     value: 2500
   }]
-  return data;  
+  return data;
 }
 
 const _getAcquisitionData = () => {
   const data = [{
     label: 'Direct',
     value: 18
-  },{
+  }, {
     label: 'Afffiliates',
     value: 35
-  },{
+  }, {
     label: 'SEO',
     value: 30
-  },{
+  }, {
     label: 'Referral',
     value: 19
   }];
 
-  return data;  
+  return data;
 }
 
 
@@ -398,18 +420,18 @@ const _getMonthlyProfitData = () => {
   const data = [{
     label: 'Jan',
     value: 7400
-  },{
+  }, {
     label: 'Feb',
     value: 8431
-  },{
+  }, {
     label: 'Mar',
     value: 12485
-  },{
+  }, {
     label: 'Apr',
     value: 14120
   }];
 
-  return data;  
+  return data;
 }
 
 const _getQuarterlyCountryRevenueData = () => {
@@ -420,21 +442,21 @@ const _getQuarterlyCountryRevenueData = () => {
       uk: 4000,
       india: 4200,
     }
-  },{
+  }, {
     label: 'Feb',
     value: {
       us: 4000,
       uk: 4000,
       india: 4200,
     }
-  },{
+  }, {
     label: 'Mar',
     value: {
       us: 4300,
       uk: 4000,
       india: 4200,
     }
-  },{
+  }, {
     label: 'Apr',
     value: {
       us: 4500,
@@ -443,10 +465,12 @@ const _getQuarterlyCountryRevenueData = () => {
     }
   }];
 
-  return data;  
+  return data;
 }
 
 const dict = {
+  login: _login,
+  signup: _signup,
   getCategories: _getCategories,
   getListOfCategory: _getListOfCategory,
   getDataOfCategory: _getDataOfCategory,
