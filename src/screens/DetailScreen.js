@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-navigation';
 
 class DetailScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
-        title: 'Detail',
+        title: navigation.getParam('item').title,
     });
 
     constructor(props) {
