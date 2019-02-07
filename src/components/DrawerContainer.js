@@ -15,6 +15,7 @@ export default class DrawerContainer extends React.Component {
           <MenuButton title='Orders' source={AppStyles.iconSet.orders} onPress={() => { navigation.navigate('Orders') }} />
           <MenuButton title='Notifications' source={AppStyles.iconSet.bell} onPress={() => { navigation.navigate('Notifications') }} />
           <MenuButton title='Activity' source={AppStyles.iconSet.feed} onPress={() => { navigation.navigate('Activity') }} />
+          <MenuButton title='Logout' source={AppStyles.iconSet.logout} onPress={() => { navigation.dispatch({ type: 'Logout' }) }} />
         </View>
       </View>
     )

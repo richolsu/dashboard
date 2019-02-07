@@ -22,6 +22,10 @@ const _signup = (fullname, phone, email, password, callback) => {
   });
 }
 
+const _logout = () => {
+  firebase.auth().signOut();
+}
+
 const _getCategories = () => {
   const categories = [{
     title: 'Analytics',
@@ -471,6 +475,7 @@ const _getQuarterlyCountryRevenueData = () => {
 const dict = {
   login: _login,
   signup: _signup,
+  logout: _logout,
   getCategories: _getCategories,
   getListOfCategory: _getListOfCategory,
   getDataOfCategory: _getDataOfCategory,

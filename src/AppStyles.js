@@ -56,6 +56,7 @@ const _iconSet = {
   tasks: require('../assets/icons/orders.png'),
   sales: require('../assets/icons/bell.png'),
   products: require('../assets/icons/feed.png'),
+  logout: require('../assets/icons/logout.png'),
 }
 
 const _iconSizeSet = {
