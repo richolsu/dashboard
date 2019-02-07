@@ -134,7 +134,11 @@ class HomeScreen extends React.Component {
     }
 
     onSelectDateRangeDone = (dateRange) => {
+        var currentDateRangeOption = {...this.state.currentDateRangeOption};
+        currentDateRangeOption.label = dateRange.startDay + " - " + dateRange.endDay;
+
         this.setState({
+            currentDateRangeOption: currentDateRangeOption,
             startDay: dateRange.startDay,
             endDay: dateRange.endDay,
             selectDateRangeModalVisible: false
