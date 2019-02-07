@@ -124,7 +124,7 @@ class HomeScreen extends React.Component {
         });
 
         if (option.key == 'custom_range') {
-            this.setState({selectDateRangeModalVisible: true});
+            this.setState({ selectDateRangeModalVisible: true });
         }
 
     }
@@ -134,10 +134,10 @@ class HomeScreen extends React.Component {
     }
 
     onSelectDateRangeDone = (dateRange) => {
-        this.setState({ 
+        this.setState({
             startDay: dateRange.startDay,
             endDay: dateRange.endDay,
-            selectDateRangeModalVisible: false 
+            selectDateRangeModalVisible: false
         });
     }
 
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     categoryDivider: {
-        width: 30,
+        width: 20,
         height: "100%",
     },
     categoryItemContainer: {
@@ -242,14 +242,15 @@ const styles = StyleSheet.create({
         width: 60,
     },
     categoryIcon: {
-        height: 30,
+        height: 27,
         tintColor: AppStyles.colorSet.mainThemeForegroundColor,
-        width: 30,
+        width: 27,
     },
     categoryName: {
         marginTop: 10,
         alignSelf: 'center',
         fontFamily: AppStyles.fontSet.regular,
+        fontSize: 12
     },
     chart: {
         minHeight: 220,
@@ -264,7 +265,8 @@ const styles = StyleSheet.create({
         flex: 1,
         color: AppStyles.colorSet.mainTextColor,
         fontSize: 20,
-        fontFamily: AppStyles.fontSet.regular,
+        fontWeight: 'bold',
+        fontFamily: AppStyles.fontSet.bold,
     },
     dateRange: {
         flexDirection: 'row',
@@ -315,7 +317,8 @@ const styles = StyleSheet.create({
         padding: 10,
         color: AppStyles.colorSet.mainTextColor,
         fontSize: 20,
-        fontFamily: AppStyles.fontSet.regular,
+        fontWeight: 'bold',
+        fontFamily: AppStyles.fontSet.bold,
     },
     orderItemContainer: {
         flexDirection: 'row',
