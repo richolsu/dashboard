@@ -9,6 +9,11 @@ import Api from '../Api';
 class NotificationsScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
         title: 'Notifications',
+        headerLeft:
+        <TouchableOpacity onPress={() => { navigation.toggleDrawer() }} >
+            <Icon style={AppStyles.styleSet.menuButton} name="ios-menu" size={AppStyles.iconSizeSet.normal} color={AppStyles.colorSet.mainThemeForegroundColor} />
+        </TouchableOpacity>,
+
     });
 
     constructor(props) {

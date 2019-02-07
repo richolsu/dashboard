@@ -51,7 +51,7 @@ const HomeStack = createStackNavigator({
     HomeScreen: { screen: HomeScreen },
     ListScreen: { screen: ListScreen },
     DetailScreen: { screen: DetailScreen },
-    AnalyticsScreen: {screen: AnalyticsScreen},    
+    AnalyticsScreen: { screen: AnalyticsScreen },
 }, {
         initialRouteName: 'HomeScreen',
         headerMode: 'float',
@@ -69,7 +69,7 @@ const DashboardStack = createStackNavigator({
     DashboardScreen: { screen: DashboardScreen },
     ListScreen: { screen: ListScreen },
     DetailScreen: { screen: DetailScreen },
-    AnalyticsScreen: {screen: AnalyticsScreen},
+    AnalyticsScreen: { screen: AnalyticsScreen },
 }, {
         initialRouteName: 'DashboardScreen',
         headerMode: 'float',
@@ -128,6 +128,9 @@ const ActivityStack = createStackNavigator({
     }
 );
 
+/*****
+ *  Hide Tabbar
+ * 
 const TabNavigator = createBottomTabNavigator(
     {
         Home: { screen: HomeStack },
@@ -175,6 +178,22 @@ const DrawerStack = createDrawerNavigator({
 }, {
         drawerPosition: 'left',
         initialRouteName: 'TabNavigator',
+        drawerWidth: 300,
+        contentComponent: DrawerContainer
+    })
+*
+*********/
+
+// drawer stack
+const DrawerStack = createDrawerNavigator({
+    Home: { screen: HomeStack },
+    Dashboard: { screen: DashboardStack },
+    Orders: { screen: OrdersStack },
+    Notifications: { screen: NotificationsStack },
+    Activity: { screen: ActivityStack },
+}, {
+        drawerPosition: 'left',
+        initialRouteName: 'Home',
         drawerWidth: 300,
         contentComponent: DrawerContainer
     })
