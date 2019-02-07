@@ -4,6 +4,10 @@ import { Text, View, StyleSheet } from 'react-native';
 import AppStyles from '../AppStyles';
 
 class WelcomeScreen extends React.Component {
+    static navigationOptions = ({ navigation }) => ({
+        header: null
+    });
+
     render() {
         return (
             <View style={styles.container}>
