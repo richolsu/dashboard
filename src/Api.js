@@ -402,7 +402,7 @@ const _getAcquisitionData = () => {
     label: 'Direct',
     value: 18
   }, {
-    label: 'Afffiliates',
+    label: 'Afiliates',
     value: 35
   }, {
     label: 'SEO',

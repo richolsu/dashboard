@@ -1,15 +1,11 @@
 import React from 'react';
-import { ScrollView, View, FlatList, Text, TextInput, Image, Dimensions, StyleSheet } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { Dimensions, ScrollView, StyleSheet, Text } from 'react-native';
+import { BarChart, LineChart, PieChart } from 'react-native-chart-kit';
 import { connect } from 'react-redux';
-import AppStyles from '../AppStyles';
 import Api from '../Api';
-import {
-    BarChart,
-    PieChart,
-} from 'react-native-chart-kit'
+import AppStyles from '../AppStyles';
 
-import LineChart from '../components/line-chart'
+const WINDOW_WIDTH = Dimensions.get('window').width;
 
 class AnalyticsScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -108,44 +104,49 @@ class AnalyticsScreen extends React.Component {
     render() {
         return (
             <ScrollView style={styles.container}>
+                <Text style={styles.title}>Revenue</Text>
                 <LineChart
                     data={this.getLineChartData(this.state.revenueData)}
-                    width={AppStyles.windowH}
+                    width={WINDOW_WIDTH}
                     height={220}
                     config={{renderHorizontalLines:{count: 10}}}
                     gridMin={0}
                     chartConfig={AppStyles.chartConfig}
                     bezier
                 />
+                <Text style={styles.title}>Costs</Text>
                 <LineChart
                     data={this.getLineChartData(this.state.costData)}
-                    width={AppStyles.windowH}
+                    width={WINDOW_WIDTH}
                     height={220}
                     chartConfig={AppStyles.chartConfig}
                     bezier
                 />
+                <Text style={styles.title}>Acquisition</Text>
                 <PieChart
                     data={this.getPieChartData(this.state.acquisitionData)}
-                    width={AppStyles.windowH}
+                    width={WINDOW_WIDTH}
                     height={220}
                     chartConfig={AppStyles.chartConfig}
                     accessor="value"
                     backgroundColor="transparent"
                     paddingLeft="15"
                 />
+                <Text style={styles.title}>Monthly Profit</Text>
                 <PieChart
                     data={this.getPieChartData(this.state.monthlyProfitData)}
-                    width={AppStyles.windowH}
+                    width={WINDOW_WIDTH}
                     height={220}
                     chartConfig={AppStyles.chartConfig}
                     accessor="value"
                     backgroundColor="transparent"
                     paddingLeft="15"
                 />
+                <Text style={styles.title}>Quarterly Revenue by Country</Text>
                 <BarChart
                     // style={graphStyle}
                     data={this.getBarChartData()}
-                    width={AppStyles.windowH}
+                    width={WINDOW_WIDTH}
                     height={220}
                     chartConfig={AppStyles.chartConfig}
                 />
@@ -160,6 +161,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flex: 1,
     },
+    title: {
+        padding: 10,
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: AppStyles.colorSet.mainTextColor,
+        fontFamily: AppStyles.fontSet.bold,
+    }
 });
 
 const mapStateToProps = state => ({

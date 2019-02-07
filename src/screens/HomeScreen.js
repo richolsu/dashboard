@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, FlatList, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { ScrollView, View, FlatList, Text, Dimensions, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { connect } from 'react-redux';
 import AppStyles from '../AppStyles';
@@ -9,6 +9,8 @@ import { LineChart } from 'react-native-chart-kit'
 import ModalSelector from 'react-native-modal-selector';
 import SelectDateRangeModal from '../components/SelectDateRangeModal';
 import moment from 'moment';
+
+const WINDOW_WIDTH = Dimensions.get('window').width;
 
 class HomeScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -180,7 +182,7 @@ class HomeScreen extends React.Component {
                     </View>
                     <LineChart
                         data={this.getLineChartData(this.getLineChartData())}
-                        width={AppStyles.windowH}
+                        width={WINDOW_WIDTH}
                         height={220}
                         gridMin={0}
                         chartConfig={AppStyles.chartConfig}
