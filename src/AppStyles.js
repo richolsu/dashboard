@@ -97,7 +97,7 @@ const _chartConfig = {
   backgroundGradientTo: '#FFFFFF',
   decimalPlaces: 0,
   paddingLeft: 0,
-  color: (opacity = 1) => `rgba(48, 104, 204, ${opacity})`
+  color: (opacity = 1) => `rgb(48, 104, 204)`
 };
 
 const _dateRangeOptions = [
