@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         borderRadius: 23,
         borderWidth: 1,
         margin: 10,
-        borderColor: AppStyles.colorSet.mainTextColor,
+        borderColor: AppStyles.colorSet.hairlineColor,
     },
     leftContainer: {
         flex: 1,

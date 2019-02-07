@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
-    backgroundColor: 'grey',
+    borderColor: AppStyles.colorSet.hairlineColor,
     width: 60,
   },
   categoryIcon: {

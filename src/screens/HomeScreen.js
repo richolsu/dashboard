@@ -241,13 +241,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 2,
-        borderColor: AppStyles.colorSet.mainThemeForegroundColor,
+        borderColor: AppStyles.colorSet.hairlineColor,
         backgroundColor: 'grey',
         width: 60,
     },
     categoryIcon: {
         height: 27,
-        tintColor: AppStyles.colorSet.mainThemeForegroundColor,
+        tintColor: AppStyles.colorSet.hairlineColor,
         width: 27,
     },
     categoryName: {
@@ -337,7 +337,7 @@ const styles = StyleSheet.create({
         borderRadius: 23,
         borderWidth: 1,
         margin: 10,
-        borderColor: AppStyles.colorSet.mainTextColor,
+        borderColor: AppStyles.colorSet.hairlineColor,
     },
     orderLeftContainer: {
         flex: 1,

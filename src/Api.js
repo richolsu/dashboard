@@ -106,7 +106,7 @@ const _getOrdersItem = (index) => {
   let item = {
     id: index,
     title: 'Skater Dress ' + index,
-    description: 'Monica Perez . Stripe . #43555 . Aug ' + index,
+    description: 'Monica Perez · Stripe · #43555 · Aug ' + index,
     photo: 'https://static.pullandbear.cn/2/photos/2019/V/0/2/p/5590/540/827/5590540827_1_1_3.jpg?t=1543923397000',
     value: '$' + index + '.00',
   };
@@ -128,7 +128,7 @@ const _getCustomersItem = (index) => {
   let item = {
     id: index,
     title: 'John Doe ' + index,
-    description: 'iPhone . Total Spend $' + index,
+    description: 'iPhone · Total Spend $' + index,
     photo: 'https://image.shutterstock.com/image-photo/smiling-man-crossed-arms-over-260nw-371570986.jpg',
     value: 'Created Jul ' + index,
   };
@@ -319,14 +319,14 @@ const _getOrders = () => {
   let data = [{
     id: 1,
     title: 'Daniel Wellington Classic',
-    description: 'John Doe. Stripe . #51202325 . Aug 11',
+    description: 'John Doe· Stripe · #51202325 · Aug 11',
     photo: 'https://image.shutterstock.com/image-photo/smiling-man-crossed-arms-over-260nw-371570986.jpg',
     value: '$149.21',
     valueType: 1
   }, {
     id: 2,
     title: 'Skater Dress',
-    description: 'Adele Camp . Square . #51202325 . Aug 11',
+    description: 'Adele Camp · Square · #51202325 · Aug 11',
     photo: 'https://image.shutterstock.com/image-photo/smiling-man-crossed-arms-over-260nw-371570986.jpg',
     value: '$149.21',
     valueType: 2
