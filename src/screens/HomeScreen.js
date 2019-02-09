@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import AppStyles from '../AppStyles';
 import Api from '../Api';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { LineChart } from 'react-native-chart-kit'
+// import { LineChart } from 'react-native-chart-kit';
+import LineChart from '../components/line-chart';
+
 import ModalSelector from 'react-native-modal-selector';
 import SelectDateRangeModal from '../components/SelectDateRangeModal';
 import moment from 'moment';

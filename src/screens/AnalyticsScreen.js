@@ -1,9 +1,11 @@
 import React from 'react';
 import { Dimensions, ScrollView, StyleSheet, Text } from 'react-native';
-import { BarChart, LineChart, PieChart } from 'react-native-chart-kit';
+import { PieChart } from 'react-native-chart-kit';
 import { connect } from 'react-redux';
 import Api from '../Api';
 import AppStyles from '../AppStyles';
+import LineChart from '../components/line-chart';
+import BarChart from '../components/bar-chart';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
